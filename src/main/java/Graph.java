@@ -18,7 +18,6 @@ public class Graph {
     }
 
     void printGraph(Graph graph){
-        System.out.println("1");
         for(int v=0;v<graph.V;v++){
             System.out.println("Lista de Adyaciencia del vertice "+v);
             System.out.println(v);
@@ -27,5 +26,10 @@ public class Graph {
             }
             System.out.println("\n");
         }
+        System.out.println(adjArray);
+    }
+    void direction(){
+    }
+    void cicle(){
     }
 }

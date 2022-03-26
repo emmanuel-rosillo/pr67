@@ -9,6 +9,6 @@ public class main {
             graph.addEdge(1, 1);
             graph.addEdge(2, 3);
             graph.addEdge(3, 4);
-            graph.printGraph (graph) ;
+            graph.printGraph(graph);
     }
 }
