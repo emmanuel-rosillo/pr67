@@ -38,4 +38,5 @@ public class DirectedGraph {
     public void setMatrizAdy(boolean[][] matrizAdy) {
         this.matrizAdy = matrizAdy;
     }
+    public void
 }
