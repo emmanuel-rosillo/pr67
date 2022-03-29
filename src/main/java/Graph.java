@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Graph {
@@ -28,8 +29,23 @@ public class Graph {
         }
         System.out.println(adjArray);
     }
-    void direction(){
+    void BFS(int s) {
+        boolean visited[] = new boolean[V];
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+        visited[s]=true;
+        queue.add(s) ;
+        while (queue.size() != 0) {
+            s = queue.poll();
+            System.out.print (s+" ");
+            Iterator<Integer> i = adjArray[s].listIterator();
+            while (i.hasNext()) {
+                int n = i.next();
+                if (!visited[n]) {
+                    visited[n] = true;
+                    queue.add(n) ;
+                }
+            }
+        }
     }
-    void cicle(){
-    }
+
 }
