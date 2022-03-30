@@ -5,47 +5,63 @@ public class Graph {
     int V;
     LinkedList<Integer> adjArray[];
 
-    Graph(int v){
+    Graph(int v) {
         V = v;
         adjArray = new LinkedList[v];
-        for(int i=0;i<V;i++){
-            adjArray[i]=new LinkedList();
+        for (int i = 0; i < V; i++) {
+            adjArray[i] = new LinkedList();
         }
     }
 
-    void addEdge(int v, int w){
+    void addEdge(int v, int w) {
         adjArray[v].add(w);
         adjArray[w].add(v);
     }
 
-    void printGraph(Graph graph){
-        for(int v=0;v<graph.V;v++){
-            System.out.println("Lista de Adyaciencia del vertice "+v);
+    void printGraph(Graph graph) {
+        for (int v = 0; v < graph.V; v++) {
+            System.out.println("Lista de Adyaciencia del vertice " + v);
             System.out.println(v);
-            for(Integer node:graph.adjArray[v]){
-                System.out.println("->"+node);
+            for (Integer node : graph.adjArray[v]) {
+                System.out.println("->" + node);
             }
             System.out.println("\n");
         }
         System.out.println(adjArray);
     }
+
     void BFS(int s) {
         boolean visited[] = new boolean[V];
         LinkedList<Integer> queue = new LinkedList<Integer>();
-        visited[s]=true;
-        queue.add(s) ;
+        visited[s] = true;
+        queue.add(s);
         while (queue.size() != 0) {
             s = queue.poll();
-            System.out.print (s+" ");
+            System.out.print(s + " ");
             Iterator<Integer> i = adjArray[s].listIterator();
             while (i.hasNext()) {
                 int n = i.next();
                 if (!visited[n]) {
                     visited[n] = true;
-                    queue.add(n) ;
+                    queue.add(n);
                 }
             }
         }
     }
 
+    void DFSUtil(int v, boolean visited[]) {
+        visited[v] = true;
+        System.out.print(v + " ");
+        Iterator<Integer> i = adjArray[v].listIterator();
+        while (i.hasNext()) {
+            int n = i.next();
+            if (!visited[n])
+                DFSUtil(n, visited);
+        }
+    }
+
+    void DFS(int v) {
+        boolean visited[] = new boolean[V];
+        DFSUtil(v, visited);
+    }
 }

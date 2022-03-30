@@ -13,7 +13,7 @@ public class DirectedGraph {
 
     public DirectedGraph(int max, boolean b) {
         this.maxVertices = max;
-        this.direct =b;
+        this.direct = b;
         this.matrizAdy = new boolean[maxVertices][maxVertices];
     }
 
